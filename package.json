@@ -1,0 +1,26 @@
+{
+  "name": "tcp-cat",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "binding.c",
+    "binding.js",
+    "CMakeLists.txt",
+    "prebuilds"
+  ],
+  "addon": true,
+  "scripts": {
+    "test": "standard && bare test.js",
+    "lint:fix": "standard --fix"
+  },
+  "author": "Marco Ippolito",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "brittle": "^3.4.0"
+  }
+}
