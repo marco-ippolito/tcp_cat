@@ -60,6 +60,7 @@ on_connect (uv_connect_t *connection, int status) {
   uv_stream_t *stream = connection->handle;
 
   request_data *request_data = connection->data;
+  free(connection);
 
   char *body = (char *) request_data->data;
 
@@ -114,9 +115,9 @@ tcp_cat (js_env_t *env, js_callback_info_t *info) {
 
   uv_connect_t *connection = malloc(sizeof(uv_connect_t));
   request_data *rq_data = malloc(sizeof(request_data));
-  rq_data->deferred = deferred;       // store callback
-  rq_data->data = (char *) data;      // store request body
-  rq_data->env = env;                 // store env
+  rq_data->deferred = deferred;  // store callback
+  rq_data->data = (char *) data; // store request body
+  rq_data->env = env;            // store env
 
   connection->data = rq_data;
 
